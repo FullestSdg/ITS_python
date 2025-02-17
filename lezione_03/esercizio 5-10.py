@@ -9,6 +9,6 @@ for i in new_users:
 
 current_users:list = ["Franco", "Fabrizio", "Giancarlo", "Mario", "Luigi"]
 
-for i in new_users:
+for i in current_users:
     i.upper()
     print(current_users)
