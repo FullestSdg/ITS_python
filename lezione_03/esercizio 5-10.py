@@ -7,8 +7,8 @@ for i in new_users:
     else:
         print("This username is available!")
 
-current_users:list = ["Franco", "Fabrizio", "Giancarlo", "Mario", "Luigi"]
+current_users_upper = []
 
 for i in current_users:
-    i.upper()
-    print(current_users)
+    current_users_upper.append(i.upper())
+print(current_users_upper)
