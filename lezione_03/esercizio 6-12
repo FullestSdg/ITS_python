@@ -1,0 +1,20 @@
+information1: dict = {"country":"USA","population":"9kk","fact":"the city which never sleeps"}
+
+information1["foundation"] = 1625 #added information
+information1["population"] = "25kk including the metropolitean area" #updated information
+
+information2: dict = {"country":"New Zeland","population":"400k","fact":"eastern largest city of the world"}
+
+information2["foundation"] = "unknown" #added information
+
+
+information3: dict = {"country":"Australia","population":"5kk","fact":"mo important city but not the capital"}
+
+information3["foundation"] = 1788 #added information
+
+
+cities: dict = {"New York": information1,"Wellington": information2,"Sydney": information3}
+
+print("New York",cities["New York"])
+print("Wellington",cities["Wellington"])
+print("Sydney",cities["Sydney"])
