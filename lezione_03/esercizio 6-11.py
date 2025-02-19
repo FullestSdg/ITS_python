@@ -7,3 +7,6 @@ cities: dict = {"New York": information1,"Wellington": information2,"Sydney": in
 print("New York",cities["New York"])
 print("Wellington",cities["Wellington"])
 print("Sydney",cities["Sydney"])
+
+for città, informazione in cities.items():
+    print(f"{città} = ")

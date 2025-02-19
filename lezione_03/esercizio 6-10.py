@@ -6,7 +6,7 @@ daniele_numeri:list = [104,69]
 
 numeri: dict = {"Sergio": sergio_numeri , "Alessandro": alessandro_numeri , "Giuseppe": giuseppe_numeri, "Daniel": daniel_numeri, "Daniele": daniele_numeri}
 
-numero1 = numeri["Sergio"]
+'''numero1 = numeri["Sergio"]
 print("Sergio",numero1)
 
 numero2 = numeri["Alessandro"]
@@ -19,9 +19,14 @@ numero4 = numeri["Daniel"]
 print("Daniel",numero4)
 
 numero5 = numeri["Daniele"]
-print("Daniele",numero5)
+print("Daniele",numero5)'''
 
 # Con ciclo for 
 
-for i,x in numeri.items():
-    print(i,x)
+for nome, numeri_persona in numeri.items():
+    print(f"Numeri preferiti da {nome}: ") #, "{",'; '.join([str(x) for x in numeri_persona]), "}")
+
+    # stampare i numeri preferiti dalla persona, uno per riga
+    
+    for n in numeri_persona:
+        print(f"\t{n}")
