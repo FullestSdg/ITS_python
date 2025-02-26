@@ -7,7 +7,7 @@ while i < 3:
 
 match oggetti:
 
-    case ["penna", "matita", "quaderno"]:
+    case ["penna","matita", "quaderno"]:
         print("Materiale Scolastico")   
 
     case ["pane", "latte", "uova"]:
