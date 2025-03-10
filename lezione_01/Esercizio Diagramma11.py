@@ -33,7 +33,3 @@ while True:
 
     case _:
        print(f"{opzione} non è un'opzione valida")
-      
-      
-      
-        
