@@ -1,8 +1,7 @@
 max_posti:int = 100
+nome_corso:str = input("Inserisci il nome del corso: ")
 
 while True:
-
-    nome_corso:str = input("Inserisci il nome del corso: ")
 
     opzione:str = input("Inserisci un'opzione: ")
 
@@ -22,7 +21,7 @@ while True:
                 max_posti += 1
 
             else:
-                print("Tutti i posti sono igà disponibili")
+                print("Tutti i posti sono già disponibili")
 
         case "visualizza":
 
@@ -30,7 +29,15 @@ while True:
             print(100 - max_posti)
 
         case "elimina":
-            
+            continue
+        
+        case "esci":
+            break
+
+        case _:
+            print("Opzione inserita non valida")
+
+
 
         
 
