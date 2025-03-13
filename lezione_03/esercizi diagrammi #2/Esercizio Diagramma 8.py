@@ -7,7 +7,6 @@ while True:
 
         if A > 0 and B > 0:
 
-
             if A % 1 == 0 and B % 1 == 0:
 
                 sum = 0
