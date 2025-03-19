@@ -62,7 +62,7 @@ while True:
 
                 case "gioca":
 
-                    pronostico:str = input("Inserisci il tuo pronosostico secondo questi criteri '0' - '0': ")
+                    pronostico:str = input("Inserisci il tuo pronostico secondo questi criteri '0' - '0': ")
 
                     reti_casa = random.sample(lista1,1)[0]
                     reti_ospite = random.sample(lista1,1)[0]
@@ -70,7 +70,7 @@ while True:
 
                     if risultato == pronostico:
 
-                        soldi += 10
+                        soldi += 20
                         print(risultato)
                         print("Congratulazioni, hai vinto la bet!")
                     
@@ -78,10 +78,15 @@ while True:
                         soldi -= 10
                         print(risultato)
                         print("Peccato hai perso la bet!")
+
+                case _:
+
+                    print("Opzione inserita non valida")
+                    continue
         
         case "gioca":
                                 
-            pronostico:str = input("Inserisci il tuo pronosostico secondo questi criteri '0' - '0': ")
+            pronostico:str = input("Inserisci il tuo pronostico secondo questi criteri '0' - '0': ")
 
             squadra_casuale1 = random.sample(squadre,1)[0]
             squadra_casuale2 = random.sample(squadre,1)[0]
@@ -101,7 +106,7 @@ while True:
 
             if risultato == pronostico:
 
-                soldi += 10
+                soldi += 20
                 print(risultato)
                 print("Congratulazioni, hai vinto la bet!\n CASSAAAAAAAAAAAAAAAAAA!!!!!!!!")
                     
