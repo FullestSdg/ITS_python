@@ -95,7 +95,7 @@ somma = sumInRange(10,5)
 print(somma)
 '''
 
-def RecursivesumInRange(a:int, b:int) -> int:
+'''def RecursivesumInRange(a:int, b:int) -> int:
 
     if a > b:
 
@@ -113,4 +113,21 @@ def RecursivesumInRange(a:int, b:int) -> int:
         return int (b + RecursivesumInRange(a, b -1))
     
 print(RecursivesumInRange(5,10))
-print(RecursivesumInRange(10,5))
+print(RecursivesumInRange(10,5))'
+'''
+
+def fibonacci(n:int) -> int:
+
+    if n <= 0:
+        
+        return 0
+    
+    elif n == 1:
+
+        return 1
+    
+    else:
+        
+        return int (fibonacci(n-1) + fibonacci(n-2))
+    
+print(fibonacci(6))
