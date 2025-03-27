@@ -156,12 +156,108 @@ while True:
                                         print(risultato)
                                         print("Peccato hai perso!")
 
+                                case "x-over": 
+
+                                    x_over:float = float(input("Inserisci un valore tra '1.5','3.5','5.5': "))
+
+                                    if reti_casa + reti_ospite > x_over and reti_casa == reti_ospite:
+
+                                        if x_over == 1.5:
+                                            soldi += 20
+                                            print(risultato)
+                                            print("Congratulazioni hai vinto! Ti sono stati ridati 20€ !")
                                         
+                                        elif x_over == 3.5:
+                                            soldi += 25
+                                            print(risultato)
+                                            print("Congratulazioni hai vinto! Ti sono stati dati 25€ !")
                                         
+                                        else:
+                                            soldi += 35
+                                            print(risultato)
+                                            print("Congratulazioni hai vinto! Ti sono stati dati 35€ !\nCASSA GROSSA!!!")
+                                    
+                                    else:
+                                        soldi -= 10
+                                        print(risultato)
+                                        print("Peccato hai perso!")
+                                
+                                case "x-under": 
 
+                                    x_under:float = float(input("Inserisci un valore tra '1.5','3.5','5.5': "))
 
+                                    if reti_casa + reti_ospite > x_under and reti_casa == reti_ospite:
 
+                                        if x_under == 5.5:
+                                            soldi += 20
+                                            print(risultato)
+                                            print("Congratulazioni hai vinto! Ti sono stati ridati 20€ !")
+                                        
+                                        elif x_under == 3.5:
+                                            soldi += 25
+                                            print(risultato)
+                                            print("Congratulazioni hai vinto! Ti sono stati dati 25€ !")
+                                        
+                                        else:
+                                            soldi += 35
+                                            print(risultato)
+                                            print("Congratulazioni hai vinto! Ti sono stati dati 35€ !\nCASSA GROSSA!!!")
+                                    
+                                    else:
+                                        soldi -= 10
+                                        print(risultato)
+                                        print("Peccato hai perso!")
+                   
+                        case "goal/nogoal":
 
+                            goal_nogoal_utente:str = input("Inserisci un'opzione tra 'goal','nogoal','1-goal','2-goal','x-goal': ")
+
+                            match goal_nogoal_utente:
+
+                                case "goal":
+
+                                    if reti_casa and reti_ospite >= 1:
+                                        soldi += 20
+                                        print(risultato)
+                                        print("Congratulazioni hai vinto!\nHai guadagnato 20€")
+                                    
+                                    else:
+                                        soldi -= 10
+                                        print(risultato)
+                                        print("Peccato hai perso!")
+                                
+                                case "nogoal":
+
+                                    if reti_casa or reti_ospite == 0:
+                                        soldi += 20
+                                        print(risultato)
+                                        print("Congratulazioni hai vinto!\nHai guadagnato 20€")
+                                    
+                                    else:
+                                        soldi -= 10
+                                        print(risultato)
+                                        print("Peccato hai perso!")
+                                
+                                case "1-goal":
+
+                                    if reti_casa >= 1 and reti_ospite >= 1 and reti_ospite < reti_casa:
+                                        soldi += 30
+                                        print(risultato)
+                                        print("Congratulazioni hai vinto!\nHai guadagnato 30€\nCASSAAAAAAAAAAAAAAAAA!!!!")
+                                
+                                case "2-goal":
+
+                                    if reti_casa >= 1 and reti_ospite >= 1 and reti_ospite > reti_casa:
+                                        soldi += 30
+                                        print(risultato)
+                                        print("Congratulazioni hai vinto!\nHai guadagnato 30€\nCASSAAAAAAAAAAAAAAAAA!!!!")
+                                
+                                case "x-goal":
+
+                                    if reti_casa >= 1 and reti_ospite >= 1 and reti_ospite == reti_casa:                                       
+                                        soldi += 40
+                                        print(risultato)
+                                        print("Congratulazioni hai vinto!\nHai guadagnato 40€\nCASSAAAAAAAAAAAAAAAAA!!!!")
 
                 case _:
 
