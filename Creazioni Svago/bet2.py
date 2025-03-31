@@ -228,7 +228,7 @@ while True:
                                 
                                 case "nogoal":
 
-                                    if reti_casa or reti_ospite == 0:
+                                    if reti_casa == 0 or reti_ospite == 0:
                                         soldi += 20
                                         print(risultato)
                                         print("Congratulazioni hai vinto!\nHai guadagnato 20€")
