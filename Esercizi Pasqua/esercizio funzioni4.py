@@ -8,13 +8,14 @@ def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
     dizionario_voti_aggregati = {}
 
     for v in voti:
-        for studente, voto in v.items():
+        nome = v["nome"]
+        voto = v["voto"]
 
-            if studente not in dizionario_voti_aggregati:
+        if nome not in dizionario_voti_aggregati:
 
-                dizionario_voti_aggregati[studente] = []
+            dizionario_voti_aggregati[nome] = []
 
-            dizionario_voti_aggregati[studente].append(voto)
+        dizionario_voti_aggregati[nome].append(voto)
 
     return dizionario_voti_aggregati
                 
