@@ -62,7 +62,7 @@ class MovieCatalog:
                 return result
             else:
                 return "Nessun film trovato"
-            
-    
+
+
 
 
