@@ -7,7 +7,7 @@ class InvalidPasswordError(Exception):
 
 def validate_password(password:str):
 
-    caratteri_speciali:list[str] = "~!@#$% ^&*_-+=`|\(){}[]:;'''<>,.?/"
+    caratteri_speciali:list[str] = ["~","!","@","#","$","%","","^","&","*","_","-","+","=","`","|",":",";","'","''","<",">",",",".","?","/"]
     numero_caratteri_maiuscoli = 0
 
     for letters in password:
@@ -18,8 +18,27 @@ def validate_password(password:str):
         else:
             continue
     
-    if len(password) >= 20 and numero_caratteri_maiuscoli >= 3 and 
-        
+    if len(password) >= 20 and numero_caratteri_maiuscoli >= 3:
+
+        contatore_caratteri_speciali = 0
+
+        while contatore_caratteri_speciali >= 4:
+
+            for letters in password:
+
+                if letters in caratteri_speciali:
+
+                    contatore_caratteri_speciali += 1    
+
+                else:
+                    raise InvalidPasswordError
+    
+    else:
+        raise InvalidPasswordError
+
+
+password_prova = validate_password("CiCiao1234!!!!")
+print(password_prova)
 
 
 
