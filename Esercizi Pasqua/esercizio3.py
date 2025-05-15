@@ -16,7 +16,7 @@ def calcola_stipendio(ore_lavorate: int) -> float:
     
     else:
         differenza_ore = ore_lavorate - 40
-        stipendio = (ore_lavorate * 10) + differenza_ore * 5
+        stipendio = (ore_lavorate * 10) + (differenza_ore * 5)
         
          
 

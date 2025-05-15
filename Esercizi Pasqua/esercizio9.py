@@ -44,11 +44,11 @@ def rimbalzo() -> None:
         if altezza < 0 and rimbalzi == 5:
             altezza = altezza * -0,5 
             velocità = velocità * -0,5
-            
             rimbalzi += 1
 
         tempo += 1
     
+    return f"Tempo: {tempo} Altezza: {altezza}"
 
 risultato = rimbalzo()
 print(risultato)

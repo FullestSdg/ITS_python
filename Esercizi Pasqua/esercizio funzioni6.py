@@ -15,7 +15,6 @@ def create_contact(name: str, email: str=None, telefono: int=None) -> dict:
     
 
 def update_contact(dictionary: dict, name: str, email: str =None, telefono: int=None) -> dict:
-    
     pass
 
 profilo = create_contact("Sergio De Guidi", "sdgsergiodg20@gmail.com", 3349138566)

@@ -19,7 +19,7 @@ def integerPower(base:int, esponente:int) -> int:
     
     return risultato
 
-risultato = integerPower(-2,0)
+risultato = integerPower(-2,4)
 print(risultato)
 
 

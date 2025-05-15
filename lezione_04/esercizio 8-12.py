@@ -1,13 +1,12 @@
-def sandwiches(*args) -> str:
+def sandwiches(*args) -> tuple:
 
     return args
 
-ingredienti:str = sandwiches("panino", "salame", "formaggio")
-ingredienti2:str = sandwiches("toast", "prosciutto", "formaggio")
-ingredienti3:str = sandwiches("panino", "salsiccia", "friarelli")
+ingredienti:tuple = sandwiches("panino", "salame", "formaggio")
+ingredienti2:tuple = sandwiches("toast", "prosciutto", "formaggio")
+ingredienti3:tuple = sandwiches("panino", "salsiccia", "friarelli")
 
 print(f"Il panino contiene: {ingredienti}")
 print(f"Il panino contiene: {ingredienti2}")
 print(f"Il panino contiene: {ingredienti3}")
 
-print(type(ingredienti))

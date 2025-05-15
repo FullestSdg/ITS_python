@@ -1,6 +1,6 @@
 text:list[str] = ["Ciao francesco", "Ieri ho mangiato la pizza", "Domani vado al mare"]
 
-def show_messages(text:list[str]):
+def send_messages(text:list[str]):
 
     sent_messages:list[str] = []
     
@@ -13,6 +13,6 @@ def show_messages(text:list[str]):
     return sent_messages
 
 
-sent_messages:list[str] = show_messages(text)
+sent_messages:list[str] = send_messages(text)
 print(sent_messages)
 print(text)

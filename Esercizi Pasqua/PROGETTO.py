@@ -23,14 +23,14 @@ Ogni edificio ha un nome (name), un indirizzo (address), un intervallo di piani 
 
 class Room:
 
-    def __init__(self, id:int, floor:int, seats:int, area:int) -> None:
+    def __init__(self, id:str, floor:int, seats:int) -> None:
 
         self.id = id
         self.floor = floor
         self.seats = seats
         self.area = seats * 2
 
-    def get_id(self) -> int:
+    def get_id(self) -> str:
 
         return self.id
     
@@ -48,7 +48,7 @@ class Room:
     
 class Building:
 
-    def __init__(self, name:str, address:str, floors:int, rooms:list[int]) -> None:
+    def __init__(self, name:str, address:str, floors:int) -> None:
 
         self.name = name
         self.address = address
@@ -65,12 +65,50 @@ class Building:
     
     def add_room(self, room:int) -> None:
         # - add_room(room): Aggiunge un'aula all'edificio, solo se il piano dell'aula è compreso nell'intervallo di piani dell'edificio.
-        if Room.get_floor(self.floor) in self.floors:
+        if room.get_floor(self.floors) in self.floors:
             self.rooms.append(room)
     
     def area(self) -> int:
 
-        return sum(Room.get_area() for r in self.rooms)
+        return sum(room.get_area() for room in self.rooms)
+    
+
+'''
+### Classi Person, Student e Lecturer:
+La classe Person rappresenta una persona con un codice fiscale (cf), un nome (name), un cognome (surname), un'età (age).
+Le classi Student e Lecturer ereditano da Person.
+Uno studente è associato ad un gruppo di studio (group). Quindi, la classe Student ha il seguente metodo:
+    - set_group(group): Associa un gruppo di studio allo studente
+### Classe Group:
+La classe Group rappresenta un gruppo di studio. Ogni gruppo ha un nome (name), un limite di studenti (limit), una lista di studenti (students) e una lista di docenti (lecturers).
+- Metodi:
+    - get_name(): Restituisce il nome del gruppo
+    - get_limit(): Restituisce il limite di studenti nel gruppo
+    - get_students(): Resituisce la lista di studenti nel gruppo
+    - get_limit_lecturers(): Restituisce il limite di docenti nel gruppo. E' consentito 1 docente ogni 10 studenti. Il gruppo può avere almeno 1 docente, anche se ci sono meno di 10 studenti.
+    - add_student(student): Aggiunge uno studente al gruppo, solo se il limite per gli studenti non è stato raggiunto.
+    - add_lecturer(lecturer): Aggiunge un docente al gruppo, solo se il limite per i docenti non è stato raggiunto.
+'''
+
+class Person:
+
+    def __init__(self, cf:str, name:str, surname:str, age:int) -> None:
+
+        self.cf = cf
+        self.name = name
+        self.surname = surname
+        self.age = age
+
+class Student(Person):
+
+    def set_group(self, group:int) -> None:
+
+        self.group = group
+
+class Lecturer(Person):
+    pass
+    
+
 
 
 
