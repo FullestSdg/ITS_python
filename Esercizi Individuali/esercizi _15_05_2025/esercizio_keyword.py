@@ -3,9 +3,11 @@
 
 def contiene_parole(testo:str, parole_chiave:set[str]) -> bool:
 
+    testo = testo.lower()
+
     for p in parole_chiave:
 
-        if p in testo:
+        if p.lower() in testo:
 
             return True
         
