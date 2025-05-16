@@ -4,20 +4,19 @@ prodotti:list[tuple] = [("lavatrice", "elettrodomestico"), ("mela", "frutta"), (
                         ("frigorifero", "elettrodomestico")]
 
 
-def raggruppa(prodotti:list[tuple]) -> dict[str: list]:
+def raggruppa(prodotti:list[tuple[str, str]]) -> dict[str: list[str]]:
 
-    lista_prodotti:list[str] = []
-    lista_categoria:list[str] = []
+    categoria_prodotti:dict[str : list[str]] = {}
 
-    for product in prodotti:
+    for product, categoria in prodotti:
 
-        lista_prodotti.append(product[0])
+        if categoria not in categoria_prodotti:
 
-        if product[1] in lista_categoria:
+            categoria_prodotti[categoria] = []
 
-            lista_categoria.append(product[1])
+        categoria_prodotti[categoria].append(product)
 
-    return {str(lista_categoria) : lista_prodotti}
+    return categoria_prodotti
 
 risultato = raggruppa(prodotti=prodotti)
 print(risultato)
