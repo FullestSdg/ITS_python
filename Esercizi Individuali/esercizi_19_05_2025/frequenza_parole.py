@@ -6,18 +6,17 @@ Data una stringa, conta quante volte appare ciascuna parola.
 testo = "ciao come stai ciao tutto bene"
 # crea un dizionario con le frequenze delle parole
 
-parole:list[str] = ["ciao", "come", "stai", "ciao", "tutto", "bene"]
+parole = testo.split()
+frequenze = {}
 
-for p in parole:
+for parola in parole:
 
-    frequenza_parole = 0
+    if parola in frequenze:
+    
+        frequenze[parola] += 1
 
-    if p:
-        
-        frequenza_parole += 1
+    else:
+    
+        frequenze[parola] = 1
 
-        frequenza_parole_dizionario:dict[str : int] = {}
-
-        frequenza_parole_dizionario[p] = frequenza_parole
-
-        print(frequenza_parole_dizionario)
+print(frequenze)

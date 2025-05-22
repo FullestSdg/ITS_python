@@ -8,18 +8,25 @@ voti2 = {"Luca": 30, "Giulia": 27}
 
 # Crea un nuovo dizionario con la media dei voti se lo studente compare in entrambi, altrimenti prendi il voto presente.
 
-voti3 = voti1 | voti2
+voti_totali = {}
+studenti = set(voti1.keys()).union(voti2.keys())
 
-for nome, voto in voti3.items():
+for studente in studenti:
 
-    if nome in voti1 and voti2:
+    if studente in voti1 and studente in voti2:
 
-        media = voto / 2
+        voti_totali[studente] = (voti1[studente] + voti2[studente]) // 2
 
-        media_studente:dict[str : float] = {}
+    elif studente in voti1:
 
-        media_studente[nome] = media
+        voti_totali[studente] = voti1[studente]
 
-print(media_studente)
+    else:
+
+        voti_totali[studente] = voti2[studente]
+
+print(voti_totali)
+
+
 
 
