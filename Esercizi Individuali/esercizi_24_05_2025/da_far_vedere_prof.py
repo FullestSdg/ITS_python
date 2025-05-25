@@ -41,4 +41,6 @@ def indovina_numero(numero_segreto:int, tentativi:list[int]) -> str:
 
 print(indovina_numero(5, [1,2,3,9,8,5]))
 
+# da far vedere prof
+
 
