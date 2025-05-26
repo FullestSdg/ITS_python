@@ -28,16 +28,19 @@ def validate_password(password:str):
 
                 if letters in caratteri_speciali:
 
-                    contatore_caratteri_speciali += 1    
+                    contatore_caratteri_speciali += 1   
+                    return "Password valida" 
 
                 else:
                     raise InvalidPasswordError
     
     else:
         raise InvalidPasswordError
+    
+    
 
 
-password_prova = validate_password("CiCiao1234!!!!")
+password_prova = validate_password("CiCiaoCIAOciaociaociao1234!!!!")
 print(password_prova)
 
 
