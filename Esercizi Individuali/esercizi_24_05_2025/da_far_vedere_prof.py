@@ -15,7 +15,7 @@ Se nessun tentativo è corretto, stampa "Hai perso!"
 (usa for, if, break, continue)
 '''
 
-def indovina_numero(numero_segreto:int, tentativi:list[int]) -> str:
+def indovina_numero2(numero_segreto:int, tentativi:list[int]) -> str:
 
     while len(tentativi) > 0:
     
@@ -39,8 +39,23 @@ def indovina_numero(numero_segreto:int, tentativi:list[int]) -> str:
 
             break
 
-print(indovina_numero(5, [1,2,3,9,8,5]))
+print(indovina_numero2(5, [1,2,3,9,8,5]))
 
 # da far vedere prof
+
+
+def indovina_numero(numero_segreto, tentativi):
+    for t in tentativi:
+        if t == numero_segreto:
+            print("Corretto!")
+            break
+        elif t < numero_segreto:
+            print("Troppo basso")
+        else:
+            print("Troppo alto")
+    else:
+        print("Hai perso!")
+
+print(indovina_numero(5,[1,2,6,5,8,9]))
 
 
