@@ -3,11 +3,11 @@ import re
 
 class GTZ(float):
 
-    def __new__(cls, number:float):
+    def __new__(cls, number:float| int | bool | str | Self) -> Self:
 
         if number >= 0:
         
-            return float.__new__(cls, number)
+            return number
         
         else:
             raise ValueError(f"Il numero inserito {number} deve essere maggiore di 0 e un reale")
