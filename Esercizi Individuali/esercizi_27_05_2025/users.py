@@ -17,10 +17,13 @@ class User:
     
     def greet_user(self) -> str:
 
-        return f"Today is your birthday {self.first_name,self.last_name}"
+        return f"Welcome back {self.first_name} {self.last_name}!"
     
 u1:User = User("Sergio", "De Guidi", "Esdrongo", 21)
 u2:User = User("Giovanni", "De Guidi", "Ciao1234", 17)
 
 print(u1.describe_user())
+print(u2.describe_user())
+print(u1.greet_user())
+print(u2.greet_user())
 
