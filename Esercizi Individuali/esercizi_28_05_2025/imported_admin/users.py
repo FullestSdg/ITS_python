@@ -39,7 +39,7 @@ class Privileges:
     
 class Admin:
 
-    def __init__(self, utente1:User = User("Giovanni", "Mucciaccia", "Giovy29", "giovannimucciaccia29@gmail.com"), privilegi1:Privileges = Privileges(False, False, True)) -> None:
+    def __init__(self, utente1:User, privilegi1:Privileges) -> None:
 
         self.utente1 = utente1
         self.privilegi1 = privilegi1

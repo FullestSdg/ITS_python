@@ -29,7 +29,6 @@ def validate_password(password:str):
                 if letters in caratteri_speciali:
 
                     contatore_caratteri_speciali += 1   
-                    return "Password valida" 
 
                 else:
                     raise InvalidPasswordError
