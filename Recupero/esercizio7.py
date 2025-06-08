@@ -99,10 +99,18 @@ class ContactManager:
 
         lista_contatti_stesso_numero:list[str] = []
 
-        pass
+        for contatto, numero in self.contacts.items():
+
+            if phone_number in numero:
+
+                lista_contatti_stesso_numero.append(contatto)
+
+                return lista_contatti_stesso_numero
+            
+            else:
+
+                return "Nessun contatto trovato con questo numero di telefono!"
         
-
-
 c:ContactManager = ContactManager({})
 
 contatto1 = c.create_contact("Giuseppe", ["3349138566"])
@@ -116,7 +124,7 @@ print(contatto3)
 
 print(c.contacts)
 print(f"\n")
-'''
+
 c.add_phone_number("Giuseppe", "3868754465")
 print(contatto1)
 
@@ -126,9 +134,8 @@ print(c.add_phone_number("Giuseppe", "3346758672"))
 
 print(contatto1)
 print("\n")
-'''
 
-'''print(contatto1)
+print(contatto1)
 print(contatto3)
 
 c.remove_phone_number("Giuseppe", "3349138566")
@@ -137,11 +144,10 @@ print(contatto1)
 print(c.remove_phone_number("Francesco", "3333335555"))
 print(c.remove_phone_number("Mario", "3333335555"))
 print("\n")
-'''
 
-#print(c.update_phone_number("Giuseppe", "3349138566", "4444446666"))
-#print(c.update_phone_number("Mario", "3349138566", "4444446666"))
-#print("\n")
+print(c.update_phone_number("Giuseppe", "3349138566", "4444446666"))
+print(c.update_phone_number("Mario", "3349138566", "4444446666"))
+print("\n")
 
 print(c.list_contacts())
 print("\n")
@@ -149,3 +155,6 @@ print("\n")
 c.add_phone_number("Giuseppe", "6666666666")
 print(c.list_phone_numbers("Giuseppe"))
 
+print(c.search_contact_by_phone_number("3349138566"))
+
+print(c.search_contact_by_phone_number("3868754465"))
