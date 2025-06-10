@@ -51,7 +51,7 @@ class Voto:
 		return repr(self.valore())
 	
 
-
+#----------------------------------------------------------------------------------------------------------------------------
 
 class IntGT1900(int):
 	
@@ -63,9 +63,9 @@ class IntGT1900(int):
 		return int.__new__(cls, v)
 
 
+#----------------------------------------------------------------------------------------------------------------------------
 
-
-class RealGEZ(float):
+class RealGTZ(float):
 
     def __new__(cls, v: int | float | str | bool | Self) -> Self:
 
@@ -76,7 +76,7 @@ class RealGEZ(float):
 
         raise ValueError(f"Il numero inserito {v} è negativo!")
 
-
+#----------------------------------------------------------------------------------------------------------------------------
 
 class CodiceFiscale:
     def _init_(self, codice):
@@ -103,3 +103,5 @@ class CodiceFiscale:
 
     def is_valid(self):
         return self._valida_codice(self.codice)
+	
+#----------------------------------------------------------------------------------------------------------------------------
