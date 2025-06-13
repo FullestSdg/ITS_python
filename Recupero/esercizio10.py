@@ -30,35 +30,33 @@ def count_unique_words(text:str) -> dict[str,int]:
 
     for parola in text_splitted:
 
-        if parola[-1] not in list(string.punctuation):
+            if parola[-1] not in list(string.punctuation):
 
-            if parola not in dizionario_parole_uniche:
+                if parola not in dizionario_parole_uniche:
 
-                dizionario_parole_uniche[parola] = contatore + 1
+                    dizionario_parole_uniche[parola] = contatore + 1
 
+                else:
+                    dizionario_parole_uniche[parola] += contatore + 1
+            
             else:
-                dizionario_parole_uniche[parola] += contatore + 1
-        
-        else:
 
-            new_parola = parola
+                new_parola = parola.strip(string.punctuation)
 
-            if new_parola not in dizionario_parole_uniche:
+                if new_parola not in dizionario_parole_uniche:
 
-                dizionario_parole_uniche[parola] = contatore + 1
+                    dizionario_parole_uniche[new_parola] = contatore + 1
 
-            else:
-                dizionario_parole_uniche[parola] += contatore + 1
+                else:
+
+                    dizionario_parole_uniche[new_parola] += contatore + 1
     
     return dizionario_parole_uniche
 
-print(count_unique_words("ciao! mi chiamo ciao, ciao mi ciao   mi ciao, giuseppe, CIAO"))
+print(count_unique_words("ciao! mi chiamo ciao, ciao mi ciao ? francesco  mi ciao, giuseppe, CIAO"))
 
 
-
-
-
-
+'''
 def bin_search(lista:list, num:int) -> None:
 
     mid:int = len(lista) // 2
@@ -99,6 +97,6 @@ def bin_search_iterative(lista:list, num:int):
         elif num > lista[mid]:
 
             i = mid +1
-
+'''
 
     

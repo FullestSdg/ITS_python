@@ -19,17 +19,15 @@ sum_primary_diagonal(mat1) # restituisce 1 + 5 + 9 = 15
 sum_secondary_diagonal(mat1) # restituisce 3 + 5 + 7 = 15
 '''
 
-def sum_primary_diagonal(mat1:list[list[int]]) -> int:
+def sum_primary_diagonal(matrix:list[list[int]]) -> int:
 
-    contatore = 0
+    somma:int = 0
 
-    lista1 = mat1[0]
+    for i in range(len(matrix)):
 
-    for liste in mat1:
-            
-        contatore += liste[len(liste)-3]
+        somma += matrix[i][i]
 
-    return contatore + lista1[2]
+    return somma
 
 print(sum_primary_diagonal([
 [1, 2, 3],
@@ -38,17 +36,18 @@ print(sum_primary_diagonal([
 ]))
 
 
-def sum_secondary_diagonal(mat1:list[list[int]]) -> int:
+def sum_secondary_diagonal(matrix:list[list[int]]) -> int:
 
-    contatore = 0
+    somma2:int = 0
+    counter:int = len(matrix) - 1
 
-    lista1 = mat1[0]
+    for i in range(len(matrix)):
 
-    for liste in mat1:
-            
-        contatore += liste[len(liste)-3]
+       somma2 += matrix[i][counter]
 
-    return contatore + lista1[2]
+       counter -= 1
+    
+    return somma2
 
 print(sum_secondary_diagonal([
 [1, 2, 3],
