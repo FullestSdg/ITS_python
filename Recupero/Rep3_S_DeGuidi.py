@@ -8,8 +8,7 @@ class IntGTZ(int):
 		return int.__new__(cls, v)
 
 class NameError(Exception):
-
-    "Attenzione! Tutti gli Alieni devono avere il nome 'Robot' seguito dal numero di matricola! Reimpostazione nome Alieno in Corso!"   
+    "Nome nonm commpatibile"
 
 class Creatura:
 
@@ -53,8 +52,8 @@ class Alieno(Creatura):
         self.__matricola = self.setMatricola()
         self.__munizioni = self.setMunizioni()
 
-        if type(nome) != str and nome != "Robot":
-            raise NameError
+        if type(nome) != str or nome != "Robot":
+            raise NameError("Attenzione! Tutti gli Alieni devono avere il nome 'Robot' seguito dal numero di matricola! Reimpostazione nome Alieno in Corso!")
 
     def setMatricola(self) -> None:
         self.__matricola = randint(10000, 90000)
@@ -100,9 +99,25 @@ class Mostro(Creatura):
                 lista_numeri.append(n)
         
         self.__assalto = lista_numeri
+    
+    def setVittoria(self) -> None:
+        pass
 
+    def setSconfitta(self) -> None:
+        pass
+
+    def __str__(self):
+
+        nome_alternato = "".join(
+            c.lower() if i % 2 == 0 else c.upper()
+            for i, c in enumerate(self.__nome)
+        )
+        return f"Mostro: {nome_alternato}"
 
 alieno: Alieno = Alieno("Robot")
 alieno.setMatricola()
 
 print(alieno)
+
+mostro:Mostro = Mostro("Gorndo", "esdrongo", "gungogan")
+print(mostro)
