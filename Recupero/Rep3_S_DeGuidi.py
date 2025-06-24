@@ -99,12 +99,25 @@ class Mostro(Creatura):
                 lista_numeri.append(n)
         
         self.__assalto = lista_numeri
-    
-    def setVittoria(self) -> None:
-        pass
 
-    def setSconfitta(self) -> None:
-        pass
+    def getAssalto(self) -> list[IntGTZ]:
+        return self.__assalto
+
+    def setVittoria(self, vittoria:str) -> None:
+        
+        if type(vittoria) != str:
+            self.__urlo_vittoria == "GRAAAHHH"
+
+    def setSconfitta(self, sconfitta:str) -> None:
+        
+        if type(sconfitta) != str:
+            self.__gemito_sconfitta == "Uuurghhh"
+    
+    def getVittoria(self) -> str:
+        return self.__urlo_vittoria
+
+    def getSconfitta(self) -> str:
+        return self.__gemito_sconfitta
 
     def __str__(self):
 
@@ -114,10 +127,28 @@ class Mostro(Creatura):
         )
         return f"Mostro: {nome_alternato}"
 
-alieno: Alieno = Alieno("Robot")
-alieno.setMatricola()
 
-print(alieno)
+class ErrorFight(Exception):
 
-mostro:Mostro = Mostro("Gorndo", "esdrongo", "gungogan")
-print(mostro)
+    """ Combattimento non valido """
+
+def pariUguali(a:list[int], b:list[int]) -> list:
+
+    pass
+
+def combattimento(a:Alieno, m:Mostro):
+
+    if not isinstance(a, Alieno) or isinstance(m, Mostro):
+
+        raise ErrorFight(f"{a} non è istanza della classe 'Alieno' oppure {m} non è istanza della classe 'Mostro'")
+
+    pass
+        
+
+        
+
+
+
+
+
+
