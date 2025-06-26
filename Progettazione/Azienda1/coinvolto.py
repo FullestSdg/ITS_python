@@ -10,13 +10,13 @@ class Coinvolto:
 
         _impiegato:Impiegato # noto alla nascita
         _progetto:Progetto # noto alla nascita
-        _data_afferenza:date # noto alla nascita << immutabile >>
+        _data_inizio:date # noto alla nascita << immutabile >>
 
-        def __init__(self, impiegato:Impiegato, progetto:Progetto, data_afferenza:date) -> None:
+        def __init__(self, impiegato:Impiegato, progetto:Progetto, data_inizio:date) -> None:
 
             self._impiegato = impiegato 
             self._progetto = progetto 
-            self._data_afferenza = data_afferenza
+            self._data_inizio = data_inizio
 
         def impiegato(self) -> Impiegato:
             return self._impiegato 
@@ -24,8 +24,8 @@ class Coinvolto:
         def progetto(self) -> Progetto:
             return self._progetto
         
-        def data_afferenza(self) -> date:
-            return self._data_afferenza
+        def data_inizio(self) -> date:
+            return self._data_inizio
 
         
 

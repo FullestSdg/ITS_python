@@ -1,4 +1,5 @@
 from mytypes_azienda1 import Telefono, Indirizzo
+from impiegato import Impiegato
 
 class Dipartimento:
 
@@ -34,6 +35,27 @@ class Dipartimento:
 
     def add_telefono(self, telefono: Telefono) -> None:
         self._telefoni.add(telefono)
+
+    def add_impiegato(self, impiegato:Impiegato) -> None:
+
+        self._lista_impiegati:list[Impiegato] = []
+        self._impiegato = impiegato
+
+        if impiegato not in self._lista_impiegati: 
+            self._lista_impiegati.append(impiegato)
+        
+        else:
+            raise ValueError("Impiegato già presente nel dipartimento")
+        
+    def remove_impiegato(self, impiegato:Impiegato) -> None:
+
+        self._impiegato = impiegato
+
+        if impiegato in self._lista_impiegati:
+            self._lista_impiegati.remove(impiegato)
+
+        else:
+            raise RuntimeError("Non ci sono impiegati da rimuovere")
 
     def set_telefoni(self, telefoni: set[Telefono]) -> None:
         if not telefoni: # equivalente a len(telefoni) == 0

@@ -4,6 +4,7 @@ from impiegato import Impiegato
 from dipartimento import Dipartimento
 from progetto import Progetto
 from coinvolto import Coinvolto
+from datetime import timedelta
 
 '''
 tel1: Telefono = Telefono("3334445566")
@@ -40,12 +41,32 @@ print("dip1.telefoni() = " + str(dip1.telefoni()))
 '''
 
 alice = Impiegato("Alice", "Meraviglia", date(year=2004,month=2, day=12), 0)
-
 pegaso = Progetto("Pegaso", 5678.67)
-
 biagio = Impiegato("Biagio", "Federici", date(year=1999,month=7, day=24), 1800)
+totti = Impiegato("Francesco", "Totti", date(year=1976,month=9, day=27), 1000000)
+
+
+domani = date.today() + timedelta(hours=24)
+print(domani)
+print(f"")
 
 pegaso.add_impiegato(alice, date.today())
+pegaso.add_impiegato(biagio, domani)
+pegaso.add_impiegato(totti, date.today())
+
 print(pegaso.lista_impiegati)
+
+print(pegaso.iscoinvolto(alice))
+print(pegaso.iscoinvolto(biagio))
+
+pegaso.remove_impiegato(totti)
+pegaso.remove_impiegato(biagio)
+# pegaso.remove_impiegato(alice)
+
+print(pegaso.iscoinvolto(totti))
+
+print(pegaso.check_ultimo_impiegato())
+
+# pegaso.remove_impiegato(totti) #     da errore :(
 
 

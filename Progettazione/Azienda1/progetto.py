@@ -38,6 +38,16 @@ class Progetto:
         else:
             print(f"Errore {impiegato1} è già presente nel progetto")
     
+    def iscoinvolto(self, impiegato:Impiegato) -> bool:
+
+        self.impiegato = impiegato
+
+        if self.impiegato in self.lista_impiegati:
+            return True
+        
+        else:
+            return False
+    
     def remove_impiegato(self, impiegato_da_rimuovere:Impiegato) -> None:
         
         self.impiegato_da_rimuovere = impiegato_da_rimuovere
@@ -48,7 +58,18 @@ class Progetto:
 
         elif len(self.lista_impiegati) >= 1 and impiegato_da_rimuovere not in self.lista_impiegati:
 
-            print(f"Errore {impiegato_da_rimuovere} non è nel progetto!")
+            raise ValueError(f"Errore {impiegato_da_rimuovere} non è nel progetto!")
         
         else:
             raise RuntimeError("Il progetto deve avere almeno un impiegato")
+        
+    def check_ultimo_impiegato(self) -> Impiegato:
+
+        if len(self.lista_impiegati) >= 1:
+
+            return self.lista_impiegati[-1]
+        
+        else:
+            raise RuntimeError("Il progetto deve avere almeno un impiegato")
+
+
