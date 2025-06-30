@@ -1,19 +1,20 @@
 from __future__ import annotations
 from custom_types import *
-
+from datetime import date
 
 class Persona:
-    _nome: str
-    _cognome: str
-    _cf: list[CodiceFiscale] # [1..*]
-    _genere: Genere
-    _maternita: IntGEZ # [0..1] - deve avere un valore se e solo se _genere = Genere.donna
-    _posizione_mil: PosizioneMilitare | None # [0..1] da aggregazione, deve avere un valore se e solo se _genere = Genere.uomo
+    _nome:str
+    _cognome:str
+    _cf:list[CodiceFiscale] # [1..*]
+    _genere:Genere
+    _nascita:date # <<immutabile>> 
+    _maternita:IntGEZ # [0..1] - deve avere un valore se e solo se _genere = Genere.donna
+    _posizione_mil:PosizioneMilitare | None # [0..1] da aggregazione, deve avere un valore se e solo se _genere = Genere.uomo
 
-    def __init__(self, *, nome: str, cognome: str,
-                 cf: list[CodiceFiscale],
+    def __init__(self, *, nome:str, cognome:str,
+                 cf:list[CodiceFiscale],
                  genere: Genere,
-                 maternita: IntGEZ|None=None) -> None:
+                 maternita:IntGEZ|None=None) -> None:
         self._nome = nome
         self._cognome = cognome
         if not cf:
@@ -24,7 +25,7 @@ class Persona:
                 raise ValueError("È obbligatorio fornire il numero di maternità per le donne")
             self.diventa_donna(maternita)
 
-    def diventa_donna(self, maternita: IntGEZ) -> None:
+    def diventa_donna(self, maternita:IntGEZ) -> None:
         if self._genere == Genere.donna:
             raise RuntimeError("La persona era già una donna!")
         self._genere = Genere.donna
@@ -35,7 +36,7 @@ class Persona:
         # Questo metodo è privato perché non deve essere mai invocato dall'esterno, ma solo all'interno di questa classe
         self._posizione_mil = None
 
-    def set_maternita(self, maternita: IntGEZ) -> None:
+    def set_maternita(self, maternita:IntGEZ) -> None:
         if not self._genere == Genere.donna:
             raise RuntimeError("Gli uomini non hanno il numero di maternità!")
 
@@ -49,6 +50,6 @@ class Studente(Persona):
 class Progetto:
     pass
 
-class PosizioneMilitare:
-    pass
+class PosizioneMilitare:   
+    _nome:str #
 

@@ -90,6 +90,9 @@ class Indirizzo:
 class Genere(StrEnum):
     uomo = auto()
     donna = auto()
-if __name__ == "__main__":
 
-    tel1: Telefono = Telefono("ciao")
+class Ruolo(StrEnum):
+
+    segretario = auto()
+    direttore = auto()
+    progettista = auto()
