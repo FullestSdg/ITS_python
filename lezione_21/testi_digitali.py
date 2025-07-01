@@ -32,7 +32,7 @@ class Email(Documento):
     _titolo_messaggio:str 
 
     def __init__(self, testo:str, mittente:str, destinatario:str, titolo_messaggio:str) -> None:   
-        super.__init__(testo)
+        super().__init__(testo)
         self._mittente = self.setMittente(mittente)
         self._destinatario = self.setDestinatario(destinatario)
         self._titolo_messaggio = self.setTitoloMessaggio(titolo_messaggio)
@@ -72,7 +72,7 @@ class File(Documento):
 
     def __init__(self, nomePercorso:str) -> None:
         self._nomePercorso = self.setnomePercorso(nomePercorso)
-        super.__init__(self.leggiTestoDaFile)
+        super().__init__(self.leggiTestoDaFile)
 
     def setnomePercorso(self, nome_percorso:str) -> None:
         self._nomePercorso = nome_percorso
@@ -94,7 +94,6 @@ class File(Documento):
 documento = Documento("ciao giuseppe roberto!")
 
 email = Email("ciao", "sdgsergiodg20@gmail.com", "candidodomenico87@gmail.com", "Esdrongo")
-
 
 file = File("document.txt")
 
