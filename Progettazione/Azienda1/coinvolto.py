@@ -26,6 +26,8 @@ class Coinvolto:
         
         def data_inizio(self) -> date:
             return self._data_inizio
+        
+        
 
         
 
