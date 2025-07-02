@@ -93,9 +93,16 @@ class File(Documento):
 
 documento = Documento("ciao giuseppe roberto!")
 
-email = Email("ciao", "sdgsergiodg20@gmail.com", "candidodomenico87@gmail.com", "Esdrongo")
+email = Email("ciao giuseppe", "sdgsergiodg20@gmail.com", "candidodomenico87@gmail.com", "Esdrongo")
 
 file = File("document.txt")
 
+print(email.getText())
+print("")
+print(file.getText())
+print("")
+print(email.isInTest("ciao"))
+print("")
+print(file.isInTest("questo"))
 
 

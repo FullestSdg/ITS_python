@@ -1,7 +1,0 @@
-
-
-
-
-class Volo:
-
-    pass
