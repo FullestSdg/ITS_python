@@ -91,15 +91,13 @@ class File(Documento):
 
         return f"Percorso: {self._nomePercorso}\nContenuto: {self.leggiTestoDaFile()}"
 
-documento = Documento("ciao giuseppe roberto!")
+documento = Documento("CIao giuseppe roberto")
 
 email = Email("ciao giuseppe", "sdgsergiodg20@gmail.com", "candidodomenico87@gmail.com", "Esdrongo")
 
 file = File("document.txt")
 
 print(email.getText())
-print("")
-print(file.getText())
 print("")
 print(email.isInTest("ciao"))
 print("")
