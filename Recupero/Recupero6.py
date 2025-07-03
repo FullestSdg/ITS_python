@@ -21,32 +21,42 @@ def recursivePalindrome(parola:str) -> bool:
 print(recursivePalindrome("i TopI nOn AvevaNo NIPOtI"))
 
 
+nomi:set[str] = set()
 
 while True:
 
-    nome:str = input("Inserisci un nome: ")
+    nome = input("Insersci un nome: ").strip()
 
-    lista_nomi:str = []
+    if nome == "":
 
-    if nome not in lista_nomi:
+        print("Errore: il nome non può essere vuoto.")
+        
+        continue
+    if len(nome) >= 20:
 
-        lista_nomi.append(nome)
+        print("Errore: il nome deve essere più corto di 20 caratteri.")
 
-        if len(lista_nomi) > 30:
-            break
-    
-    else:
-        break 
+        continue
 
-    for nomi in lista_nomi:
+    if nome in nomi:
 
-        if len(nomi) > len(nomi):
+        break
 
-            lista_nome_più_lungo = []
+    nomi.add(nome)
 
-            lista_nome_più_lungo.append(nomi)
+    if len(nomi) == 30:
+        break
 
-            print(lista_nome_più_lungo[-1])
+if nomi:
+
+    nome_piu_lungo = max(nomi, key=len)
+
+    print(f"\nHai inserito {len(nomi)} nomi distinti.")
+
+    print(f"Il più lungo è {nome_piu_lungo} con {len(nome_piu_lungo)} caratteri.")
+else:
+    print("\nNon è stato inserito alcun nome valido.")
+
 
     
 
