@@ -80,7 +80,12 @@ class Media:
 
         return f"Titolo del Film: {self._title}\nVoto Medio: {self.getMedia()}\nGiudizio: {self.getRate()}\nTerribile: {self.ratePercentage(1)}\nBrutto: {self.ratePercentage(2)}\nNormale: {self.ratePercentage(3)}\nBello: {self.ratePercentage(4)}\nGrandioso: {self.ratePercentage(5)}"
 
+class Film(Media):
 
+    def __init__(self, titolo:str) -> None:
+       super().__init__(titolo)
+
+        
 media = Media("ER PUPO", [4,3,5,4,3,3,5,2,3,4])
 
 print(media.getMedia())
@@ -88,3 +93,5 @@ print(media.getRate())
 print(media.ratePercentage(5))
 print("\n")
 print(media.recensione())
+
+# print(film.getRate())
