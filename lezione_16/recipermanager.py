@@ -15,29 +15,112 @@ Classe:
 
 class RecipeManager:
 
-    def __init__(self) -> None:
-
-        self.ricette = [] 
+    _ricette = {}
 
     def create_recipe(self, name:str, ingredients:list[str]) -> dict | str:
 
-        self.name = name
-        self.ingredients = ingredients
+        for keys in self._ricette.keys():
 
-        for ricetta in self.ricette:
-            
-            if ricetta not in self.ricette:
-                
-                self.ricette.append(name[ingredients])
-                return dict[name: ingredients]
-            
-            else:
-                raise ValueError("Questa ricetta è già presente")
+            if keys == name:
+                return f"La ricetta {name} esiste già!"
+
+        self._ricette[name] = ingredients
+        return {name: ingredients}
     
-    def add_ingredient(recipe_name:str, ingredient:str) -> None:
+    def add_ingredient(self, recipe_name:str, ingredient:str) -> None:
+        
+        for keys, values in self._ricette.items():
 
-        pass
+            if keys == recipe_name:
 
+                if ingredient in values:
+                    return f"L'ingrediente {ingredient} è già presente nella ricetta!"
+
+                else:
+                    values.append(ingredient)
+
+        return {recipe_name : self.list_ingredients(recipe_name)}
+    
+    def remove_ingredient(self, recipe_name:str, ingredient:str) -> None:
+        
+        for keys, values in self._ricette.items():
+
+            if keys == recipe_name:
+
+                if ingredient in values:
+                    values.remove(ingredient)
+
+                else:
+                    return f"L'ingrediente {ingredient} non è presente nella ricetta"
+        
+        return {recipe_name : self.list_ingredients(recipe_name)}
+
+    def update_ingredient(self, recipe_name:str, old_ingredient:str, new_ingredient:str) -> None:
+        
+        for keys, values in self._ricette.items():
+
+            if keys == recipe_name:
+
+                if old_ingredient in values:
+                    values.remove(old_ingredient)
+                    values.append(new_ingredient)
+                
+                else:
+                    return f"L'ingrediente {old_ingredient} non è presente nella ricetta"
+                
+            else:
+                return f"La ricetta {recipe_name} non esiste!"
+        
+        return {recipe_name : self.list_ingredients(recipe_name)}
+
+    def list_recipes(self) -> list[dict[str,str]]:
+        
+        for keys in self._ricette.keys():
+            return [keys]
+    
+    def list_ingredients(self, recipe_name) -> list[str] | str:
+        
+        for keys in self._ricette.keys():
+            
+            if keys == recipe_name:
+                return self._ricette[keys]
+
+    def search_recipe_by_ingredient(self, ingredient) -> dict[str,list[str]]:
+        
+        for keys, value in self._ricette.items():
+
+            if ingredient in value:
+
+                return self._ricette
+
+# manager = RecipeManager()
+manager2 = RecipeManager()
+# print(manager.create_recipe("Torta di mele", ["Farina", "Uova", "Mele"]))
+# print(manager.create_recipe("Torta di zucche", ["Farina", "Uova", "Zucche"]))
+# print(manager2.create_recipe("Torta di mele", ["Farina", "Uova", "Mele"]))
+# print(manager.add_ingredient("Torta di mele", "Burro"))
+# print(manager.add_ingredient("Torta di mele", "Farina"))
+# print(manager.remove_ingredient("Torta di mele", "Burro"))
+# print(manager.remove_ingredient("Torta di mele", "Zucchero"))
+# print(manager.update_ingredient("Torta di mele", "Uova", "Latte"))
+# print(manager.update_ingredient("Torta di mele", "Francesco Totti", "Latte"))
+# print(manager.update_ingredient("Torta di pere", "Uova", "Latte"))
+# print(manager.list_recipes())
+# print(manager.list_ingredients("Torta di mele"))
+# print(manager.search_recipe_by_ingredient("Farina"))
+
+manager = RecipeManager()
+print(manager.create_recipe("Pizza Margherita", ["Farina", "Acqua", "Lievito", "Pomodoro", "Mozzarella"]))
+print(manager.add_ingredient("Pizza Margherita", "Basilico"))
+print(manager.update_ingredient("Pizza Margherita", "Mozzarella", "Mozzarella di Bufala"))
+print(manager.remove_ingredient("Pizza Margherita", "Acqua"))
+print(manager.list_ingredients("Pizza Margherita"))
+
+{'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella']}
+{'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella', 'Basilico']}
+{'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']}
+{'Pizza Margherita': ['Farina', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']}
+['Farina', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']
         
 
             
