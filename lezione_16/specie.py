@@ -63,4 +63,5 @@ class BufaloKlingon(Specie):
 class Elefante(Specie):
 
     def __init__(self, nome:str, popolazione_iniziale:int, tasso_crescita:float):
-        super().__init__(nome, popolazione_iniziale, tasso_crescita )
+        super().__init__(nome, popolazione_iniziale, tasso_crescita)
+
