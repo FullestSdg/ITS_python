@@ -37,9 +37,6 @@ class Frazione:
 
     def value(self) -> float:
         return f"{(self._numeratore / self._denominatore):.3f}"
-    
-    def __repr__(self):
-        return f"{self._numeratore}/{self._denominatore}" 
 
 def mcd(x:int, y:int) -> int:
     
@@ -79,36 +76,25 @@ def semplifica(l:list[Frazione]) -> list[Frazione]:
     
     return lista_frazioni_irriducibili
 
-l = [Frazione(10,45),Frazione(24,8),Frazione(99,33),Frazione(6,7),Frazione(1,1)]
-print(l)
-f = (semplifica(l))
-print(f)
-
-
-'''
-8.D Scrivere in Python una funzione chiamata fractionCompare() che prende in input la lista di frazioni l originale e la lista con le frazioni di l semplificata.
- 
-Usando il metodo value(), dimostrare che il valore di ogni funzione di entrambe le liste non cambia, stampandolo in output.
-Esempio:
-
-    Valore frazione originale: 0.538 --- Valore frazione ridotta: 0.538
-   
-
-8.E Scrivere un codice Python che inizializzi la seguente lista l di frazioni, dove ogni frazione è un oggetto della classe Frazione:
- 
-l = 2.5/0,   1/2,   2/4,   3/5,   6/9,   4/7,   24/36,   12/36,   40/60,   5/11,   10/45,   42/78,   9/15
-       
-Sfruttando la funzione semplifica, generare una nuova lista chiamata l_s, contente una versione semplificata delle frazioni della lista l.
-Infine, richiamando la funzione fractionCompare, dimostrare che le funzioni delle lista l e l_s sono equivalenti, ovvero hanno lo stesso valore.
-'''
 
 def fractionCompare(l:list[Frazione], f:list[Frazione]) -> float:
 
+    i = 0
+    while i < len(l):
 
-    while len(l) > 0:      
-        
-        print(f"Valore frazione originale: {l[0].value()} --- Valore frazione ridotta: {f[0].value()}")
-        l.pop(0)
+        originale = float(l[i].value())
+        semlificato = float(f[i].value())
 
-print(fractionCompare(l, f))
+        print(f"Valore frazione originale: {originale:.3f} --- Valore frazione ridotta: {semlificato:.3f}")
+    
+        i += 1
+    
+    return ""
 
+l = [Frazione(2.5,0), Frazione(1,2), Frazione(2,4), Frazione(3,5)
+     , Frazione(6,9), Frazione(4,7), Frazione(24,36), Frazione(12,36)
+     , Frazione(40,60), Frazione(5,11), Frazione(10,45), Frazione(42,78),
+        Frazione(9,15)]
+
+l_s = semplifica(l)
+fractionCompare(l, l_s)
