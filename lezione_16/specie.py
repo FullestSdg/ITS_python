@@ -1,12 +1,4 @@
 '''
-Obiettivo
-L'obiettivo di questo esercizio è creare un modello semplice per simulare la crescita delle popolazioni di due specie animali usando la programmazione orientata agli oggetti in Python.
-
-Descrizione del problema
-Due specie animali, i Bufali Klingon e gli Elefanti, vivono in una riserva naturale. Ogni specie ha una popolazione iniziale e un tasso di crescita annuo. Vogliamo sapere:
-- In quanti anni la popolazione degli Elefanti supererà quella dei Bufali Klingon.
-- n quanti anni la popolazione dei Bufali Klingon raggiungerà una densità di 1 individuo per km².
- 
 Specifiche tecniche
 1. Classe Specie
 
@@ -38,7 +30,7 @@ Hint: Loop incrementale che continua ad aggiornare la popolazione di entrambe le
 class Specie:
 
     _nome:str
-    _popolazione:int 
+    _popolazione:int = 0
     _tasso_crescita:float 
 
     def __init__(self, nome:str, popolazione_iniziale:int, tasso_crescita:float) -> None: 
@@ -49,38 +41,26 @@ class Specie:
 
     def cresci(self) -> None:
 
-        popolazione_nuova += self._popolazione * (1 + self._tasso_crescita/100)  
+        popolazione_nuova += self._popolazione * (1 + self._tasso_crescita/100)
+        self._popolazione += popolazione_nuova
 
     def anni_per_superare(self, altra_specie:"Specie",) -> int:
-        pass 
+        pass
+
+
 
     def getDensità(self, area_kmq:float) -> int:
         
         densità += self._popolazione / area_kmq
-
-'''
-Formule Matematiche:
-Aggiornamento della popolazione per l'anno successivo:
-Formula: popolazione_nuova = popolazione_attuale x (1 + tasso_crescita/100)
-Calcolo della densità di popolazione:
-Formula: popolazione / area_kmq
-Hint: Loop incrementale che continua ad aggiornare la popolazione finché la densità non raggiunge 1 individuo per km²
-Calcolo degli anni necessari per superare la popolazione di un'altra specie:
-Hint: Loop incrementale che continua ad aggiornare la popolazione di entrambe le specie finché la popolazione di questa specie non supera quella dell'altra. Per evitare che le popolazioni crescano all'infinito, limitare il numero di anni a 1000. 
-'''
+       
 
 class BufaloKlingon(Specie):
 
     def __init__(self, nome:str, popolazione_iniziale:int, tasso_crescita:float):
-        super().__init__(nome)
+        super().__init__(nome, popolazione_iniziale, tasso_crescita)
 
-        self._popolazione = popolazione_iniziale
-        self._tasso_crescita = tasso_crescita
 
 class Elefante(Specie):
 
     def __init__(self, nome:str, popolazione_iniziale:int, tasso_crescita:float):
-        super().__init__(nome)
-
-        self._popolazione = popolazione_iniziale
-        self._tasso_crescita = tasso_crescita
+        super().__init__(nome, popolazione_iniziale, tasso_crescita )
