@@ -15,7 +15,9 @@ Classe:
 
 class RecipeManager:
 
-    _ricette = {}
+    def __init__(self) -> None:
+
+        self._ricette = {}
 
     def create_recipe(self, name:str, ingredients:list[str]) -> dict | str:
 
@@ -78,23 +80,27 @@ class RecipeManager:
         for keys in self._ricette.keys():
             return [keys]
     
-    def list_ingredients(self, recipe_name) -> list[str] | str:
+    def list_ingredients(self, recipe_name:str) -> list[str] | str:
         
         for keys in self._ricette.keys():
             
             if keys == recipe_name:
                 return self._ricette[keys]
 
-    def search_recipe_by_ingredient(self, ingredient) -> dict[str,list[str]]:
+    def search_recipe_by_ingredient(self, ingredient:str) -> dict[str,list[str]]:
+
+        nuovo_dict:dict[str,list[str]] = {}
         
-        for keys, value in self._ricette.items():
+        for keys, values in self._ricette.items():
+            
+            if ingredient in values:
 
-            if ingredient in value:
-
-                return self._ricette
+                nuovo_dict[keys] = values
+                
+        return nuovo_dict
 
 # manager = RecipeManager()
-manager2 = RecipeManager()
+manager = RecipeManager()
 # print(manager.create_recipe("Torta di mele", ["Farina", "Uova", "Mele"]))
 # print(manager.create_recipe("Torta di zucche", ["Farina", "Uova", "Zucche"]))
 # print(manager2.create_recipe("Torta di mele", ["Farina", "Uova", "Mele"]))
@@ -109,18 +115,30 @@ manager2 = RecipeManager()
 # print(manager.list_ingredients("Torta di mele"))
 # print(manager.search_recipe_by_ingredient("Farina"))
 
-manager = RecipeManager()
-print(manager.create_recipe("Pizza Margherita", ["Farina", "Acqua", "Lievito", "Pomodoro", "Mozzarella"]))
-print(manager.add_ingredient("Pizza Margherita", "Basilico"))
-print(manager.update_ingredient("Pizza Margherita", "Mozzarella", "Mozzarella di Bufala"))
-print(manager.remove_ingredient("Pizza Margherita", "Acqua"))
-print(manager.list_ingredients("Pizza Margherita"))
+# manager = RecipeManager()
+# print(manager.create_recipe("Pizza Margherita", ["Farina", "Acqua", "Lievito", "Pomodoro", "Mozzarella"]))
+# print(manager.add_ingredient("Pizza Margherita", "Basilico"))
+# print(manager.update_ingredient("Pizza Margherita", "Mozzarella", "Mozzarella di Bufala"))
+# print(manager.remove_ingredient("Pizza Margherita", "Acqua"))
+# print(manager.list_ingredients("Pizza Margherita"))
 
-{'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella']}
-{'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella', 'Basilico']}
-{'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']}
-{'Pizza Margherita': ['Farina', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']}
-['Farina', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']
+# {'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella']}
+# {'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella', 'Basilico']}
+# {'Pizza Margherita': ['Farina', 'Acqua', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']}
+# {'Pizza Margherita': ['Farina', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']}
+# ['Farina', 'Lievito', 'Pomodoro', 'Mozzarella di Bufala', 'Basilico']
         
+# manager2 = RecipeManager()
+# manager = RecipeManager()
+# print(manager.create_recipe("Spaghetti alla Carbonara", ["Spaghetti", "Uova", "Guanciale", "Pecorino Romano", "Pepe"]))
+# print(manager.create_recipe("Torta zucca", ["Zucca", "Farina", "Uova"]))
+# print(manager.search_recipe_by_ingredient("Uova"))
+# print(" ")
+# print(manager2.create_recipe("Spaghetti alla Carbonara2", ["Spaghetti", "Uova", "Guanciale", "Pecorino Romano", "Pepe"]))
+# print(manager2.search_recipe_by_ingredient("Uova"))
 
-            
+ 	
+
+manager = RecipeManager()
+print(manager.create_recipe("Spaghetti alla Carbonara", ["Spaghetti", "Uova", "Guanciale", "Pecorino Romano", "Pepe"]))
+print(manager.search_recipe_by_ingredient("Uova"))
