@@ -58,18 +58,6 @@ def mcd(x:int, y:int) -> int:
 
     return max(set(lista_divisibili_x) & set(lista_divisibili_y))
 
-''' 
-8.C Una frazione si dice irriducibile se il numeratore e il denominatore non hanno divisori comuni, ovvero il più grande divisore comune tra numeratore e denominatore è 1.
-Sia l una lista di frazioni, ovvero una lista di oggetti della classe Frazione.
-Si scriva nel file frazioni.py una funzione chiamata semplifica() che data in input una lista di frazioni ritorni in output una lista di frazioni irriducibili.
-Nello specifico:
-se una frazione f della lista data in input è già irriducibile, allora inserire questa frazione f nella lista da ritornare in output.
-se una frazione f della lista data in input può essere semplificata, in una frazione irriducibile f1, allora si deve prima semplicare la frazione f, ottenendo la frazione irriducibile f1 e poi inserire f1 nella lista da ritornare in output.
-Suggerimento: Leggere bene la traccia dell'intero esercizio per capire come implementare la funzione semplifica.
-Inserire in modo adeguato le seguenti frazioni nella lista l.
-'''
-
-f = [Frazione(12,6),Frazione(24,8),Frazione(99,33),Frazione(6,7),Frazione(1,1)]
 
 def semplifica(l:list[Frazione]) -> list[Frazione]:
 
@@ -81,25 +69,46 @@ def semplifica(l:list[Frazione]) -> list[Frazione]:
             lista_frazioni_irriducibili.append(i)
         
         else:
+              
+            denominatore_semplificato = int(i.getDenonminatore() / mcd(i.getNumeratore(), i.getDenonminatore()))
+            numeratore_semplificato = int(i.getNumeratore() / mcd(i.getNumeratore(), i.getDenonminatore()))
 
-            if i.getDenonminatore() / mcd(i.getNumeratore(), i.getDenonminatore()) % 2 == 0 and i.getNumeratore() / mcd(i.getNumeratore(), i.getDenonminatore()) % 2 == 0:
-                denominatore_semplificato = i.getDenonminatore() / mcd(i.getNumeratore(), i.getDenonminatore())
-                numeratore_semplificato = i.getNumeratore() / mcd(i.getNumeratore(), i.getDenonminatore())
+            frazione = Frazione(numeratore_semplificato, denominatore_semplificato)
 
-                frazione = Frazione(numeratore_semplificato, denominatore_semplificato)
-
-                lista_frazioni_irriducibili.append(frazione)
-
-            else:
-                continue
+            lista_frazioni_irriducibili.append(frazione)
     
     return lista_frazioni_irriducibili
 
+l = [Frazione(10,45),Frazione(24,8),Frazione(99,33),Frazione(6,7),Frazione(1,1)]
+print(l)
+f = (semplifica(l))
+print(f)
 
-print(semplifica(f))
+
+'''
+8.D Scrivere in Python una funzione chiamata fractionCompare() che prende in input la lista di frazioni l originale e la lista con le frazioni di l semplificata.
+ 
+Usando il metodo value(), dimostrare che il valore di ogni funzione di entrambe le liste non cambia, stampandolo in output.
+Esempio:
+
+    Valore frazione originale: 0.538 --- Valore frazione ridotta: 0.538
+   
+
+8.E Scrivere un codice Python che inizializzi la seguente lista l di frazioni, dove ogni frazione è un oggetto della classe Frazione:
+ 
+l = 2.5/0,   1/2,   2/4,   3/5,   6/9,   4/7,   24/36,   12/36,   40/60,   5/11,   10/45,   42/78,   9/15
+       
+Sfruttando la funzione semplifica, generare una nuova lista chiamata l_s, contente una versione semplificata delle frazioni della lista l.
+Infine, richiamando la funzione fractionCompare, dimostrare che le funzioni delle lista l e l_s sono equivalenti, ovvero hanno lo stesso valore.
+'''
+
+def fractionCompare(l:list[Frazione], f:list[Frazione]) -> float:
 
 
+    while len(l) > 0:      
+        
+        print(f"Valore frazione originale: {l[0].value()} --- Valore frazione ridotta: {f[0].value()}")
+        l.pop(0)
 
-
-
+print(fractionCompare(l, f))
 
