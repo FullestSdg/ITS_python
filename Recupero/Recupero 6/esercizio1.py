@@ -55,6 +55,7 @@ if nomi:
 
     print(f"Il più lungo è {nome_piu_lungo} con {len(nome_piu_lungo)} caratteri.")
 else:
+    
     print("\nNon è stato inserito alcun nome valido.")
 
 

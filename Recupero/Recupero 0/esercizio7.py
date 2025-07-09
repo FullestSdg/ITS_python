@@ -1,7 +1,4 @@
 
-
-
-
 class ContactManager:
 
     def __init__(self, contacts:dict[str,list[str]]) -> None:
