@@ -31,11 +31,14 @@ def coppia_somma_target(L:list[int],T:int) -> list[int]:
     min_diff = abs(L[0] + L[1] - T)
 
     for i in range(len(L)):
+
         for j in range(i + 1, len(L)):
+
             somma_corrente = L[i] + L[j]
             diff = abs(somma_corrente - T)
 
             if diff < min_diff:
+                
                 min_diff = diff
                 pos_indici = [i, j]
 
