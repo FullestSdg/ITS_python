@@ -22,3 +22,6 @@ vi) separati da spazi. Ilprogrammanondevenecessariamente
  print(riga_max_file('riga_max_file2.txt'))
 '''
 
+def riga_max_file(nomefile:str) -> int:
+
+    pass

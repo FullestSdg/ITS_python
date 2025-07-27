@@ -6,3 +6,5 @@ for i in range(3,9):
     somma += L[i]
 
 print(somma)
+
+# FA 16 OWO

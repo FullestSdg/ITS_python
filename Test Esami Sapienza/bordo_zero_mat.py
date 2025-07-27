@@ -44,5 +44,26 @@ print(bordo_zero_mat(M2))
 print(bordo_zero_mat(M3))
 
 
+'''
+def bordo_zero_mat(M: list[list[int]]) -> bool:
+    R = len(M)
+    C = len(M[0])
+
+    # Controlla prima riga
+    if any(M[0][j] != 0 for j in range(C)):
+        return False
+
+    # Controlla ultima riga
+    if any(M[-1][j] != 0 for j in range(C)):
+        return False
+
+    # Controlla le colonne esterne delle righe centrali
+    for i in range(1, R - 1):
+        if M[i][0] != 0 or M[i][-1] != 0:
+            return False
+
+    return True
+
+'''
 
 

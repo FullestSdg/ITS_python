@@ -217,7 +217,7 @@ class IntGTZ(int):
 		return int.__new__(cls, v)
 
 class NameError(Exception):
-    "Nome nonm commpatibile"
+    "Nome nonm compatibile"
 
 class Creatura:
 

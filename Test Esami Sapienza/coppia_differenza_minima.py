@@ -23,9 +23,13 @@ def coppia_differenza_minima(L:list[int]) -> list[int]:
     pos_min = [0, 1]          
 
     for i in range(len(L)):
+
         for j in range(i + 1, len(L)):
+
             diff = abs(L[i] - L[j])
+
             if diff < min_diff:
+
                 min_diff = diff
                 pos_min = [i, j]
 
@@ -34,5 +38,3 @@ def coppia_differenza_minima(L:list[int]) -> list[int]:
 seq = [-5,4,8,-3,1,3,10]
 print(coppia_differenza_minima(seq))
 
-min_diff = float('inf')
-print(min_diff)
