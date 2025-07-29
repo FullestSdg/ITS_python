@@ -15,7 +15,7 @@ equation2:SecondGradeEquation = SecondGradeEquation(ax2_value2, bx_value2, c_val
 print(f"{equation}\n{equation2}")
 print(f"Risultato prima equazione:\n{SecondGradeEquationSolver(equation)}\n\nRisultato seconda equazione:\n{SecondGradeEquationSolver(equation2)}") 
 '''
-
+'''
 ax2_value = AX2("+", 1)
 bx_value = BX("+", 3)
 c_value = C("-", 10)
@@ -31,3 +31,12 @@ c_value = C("+", 10)
 equation2:SecondGradeEquation = SecondGradeEquation(ax2_value2, bx_value2, c_value)
 print(equation2)
 print(SecondGradeEquationSolver(equation))
+'''
+
+ax3_value = AX2("-", 5)
+bx3_value = BX("+", 3)
+c3_value = C("+", 7)
+
+equation3:SecondGradeEquation = SecondGradeEquation(ax3_value, bx3_value, c3_value)
+print(equation3)
+print(SecondGradeEquationSolver(equation3))
