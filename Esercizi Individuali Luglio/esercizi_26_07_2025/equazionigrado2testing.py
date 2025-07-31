@@ -34,9 +34,10 @@ print(SecondGradeEquationSolver(equation))
 '''
 
 ax3_value = AX2("-", 5)
-bx3_value = BX("+", 3)
+bx3_value = BX("+", 4)
 c3_value = C("+", 7)
 
 equation3:SecondGradeEquation = SecondGradeEquation(ax3_value, bx3_value, c3_value)
 print(equation3)
 print(SecondGradeEquationSolver(equation3))
+
