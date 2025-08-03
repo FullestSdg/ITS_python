@@ -33,7 +33,8 @@ def RandomPasswordGenerator(lenght:int, character_types:str | int) -> str:
         
     return ''.join(random_password)
 
-print(RandomPasswordGenerator(12, "@!?=12__"))
+print(RandomPasswordGenerator(12, "@!?c=12A__"))
+print(RandomPasswordGenerator(5, "_#FF"))
     
 
     
