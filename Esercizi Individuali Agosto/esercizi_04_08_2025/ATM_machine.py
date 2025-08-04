@@ -9,6 +9,18 @@ Provide appropriate feedback to the user for each transaction.
 from typing import Self
 import re
 
+class color:
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
+
 class Email(str): 
 
     def __new__(cls, email: str | Self) -> Self:
@@ -72,16 +84,10 @@ class Account:
                 raise ValueError("Email inserita non valida")
 
         else:
-            print(f"❌ Impossibile cambiare la password, la vecchia password non corrisponde oppure email non impostata!")
+            return f"❌ Impossibile cambiare la password, la vecchia password non corrisponde oppure email non impostata!"
              
-
-
-
-
-        
-
-
-
+    def __str__(self) -> str:
+        return 
 
 
 class ATM:
