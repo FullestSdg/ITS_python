@@ -43,7 +43,6 @@ def calcolosomma(x:int, y:int) -> int:
     return prodotti[-1]
 
 def proDict() -> dict[tuple[int],list[int]]:
-
     return {(x,y) : calcolosomma(x,y)}
 
 
