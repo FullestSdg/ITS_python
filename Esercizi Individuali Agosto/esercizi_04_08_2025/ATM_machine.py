@@ -8,6 +8,7 @@ Provide appropriate feedback to the user for each transaction.
 '''
 from typing import Self
 import re
+from getpass import getpass
 
 class color:
    PURPLE = '\033[95m'
@@ -64,7 +65,7 @@ class Account:
         if email == self._email:
             print(f"Email Validata ✅\nAdesso puoi cambiare password!")
 
-            new_password = input("Inserisci la tua nuova password: ")
+            new_password = input("Inserisci la tua nuova password: ") # usare getpass per privacy
             self._password = new_password
 
     def changePassword(self, vecchia_password:str, nuova_password:str) -> str | None:
@@ -87,12 +88,58 @@ class Account:
             return f"❌ Impossibile cambiare la password, la vecchia password non corrisponde oppure email non impostata!"
              
     def __str__(self) -> str:
-        return 
+        return f"{color.BOLD + color.UNDERLINE} Informazioni Account {color.END}\n• Username: {self._username}\n• Password: *********\n• Email: ****************"
 
 
 class ATM:
 
     _saldo:float = 0
+    _validazione_account:bool = False
 
-    def __init__(self, account:Account):
-        pass
+    def __init__(self, account: Account):
+        self._account = account
+        self._validazione_account = self.validateAccount()
+
+    def validateAccount(self) -> bool:
+        password_account = input("Inserisci la password per accedere all'ATM: ") # usare getpass per privacy
+
+        if password_account == self._account.getPassword():
+
+            print(f"{color.BOLD + color.GREEN} ✅ Accesso Eseguito! {color.END}\nBenvenuto {self._account.getUsername()}")
+            return True
+
+        else:
+            print(f"{color.BOLD + color.RED} ❌ Accesso Negato! {color.END}\nPassword inserita errata")
+            return False
+        
+    def depositMoney(self, money:float) -> str:
+
+        if self._validazione_account == True:
+            self._saldo += money
+            return f"Soldi depositati con successo!"
+        
+        else:
+            return f"Devi inserire la password per accedere a questa operazione!"
+    
+    def withdrawMoney(self, money:float) -> str:
+
+        if self._validazione_account == True:
+
+            if money > self._saldo:
+                raise ValueError(f"Non possiedi questa somma di denaro!")
+            
+            else:
+                self._saldo -= money 
+                return f"Soldi prelevati con successo!"
+            
+        else:
+            return f"Devi inserire la password per accedere a questa operazione!"
+
+    def checkMoney(self) -> str:
+
+        if self._validazione_account == True:
+            return f"Questo è il tuo saldo: {self._saldo:.2f}"
+        
+        else:
+            return f"Devi inserire la password per accedere a questa operazione!"
+                
