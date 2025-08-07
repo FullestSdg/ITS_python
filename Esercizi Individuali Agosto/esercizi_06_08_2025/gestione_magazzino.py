@@ -75,3 +75,4 @@ print(magazzino_super._magazzino)
 
 print(magazzino_super.verifica_disponibilità("latte"))
 print(magazzino_super.cerca_prodotto("uova"))
+
