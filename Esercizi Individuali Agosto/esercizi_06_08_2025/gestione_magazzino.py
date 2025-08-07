@@ -52,7 +52,12 @@ class Magazzino:
             return "Prodotto inesistente"
 
     def verifica_disponibilità(self, nome:str) -> str:        
-        pass
+        
+        if nome in self._magazzino:
+            return f"Prodotto: '{nome}' disponibile!"
+        
+        else:
+            return f"Prodotto non disponibile"
 
 
 banana:Prodotto = Prodotto("banana", 20)
@@ -67,3 +72,6 @@ magazzino_super.aggiungi_prodotto(latte2)
 print(magazzino_super.cerca_prodotto("latte"))
 print(magazzino_super.cerca_prodotto("uova"))
 print(magazzino_super._magazzino)
+
+print(magazzino_super.verifica_disponibilità("latte"))
+print(magazzino_super.cerca_prodotto("uova"))
