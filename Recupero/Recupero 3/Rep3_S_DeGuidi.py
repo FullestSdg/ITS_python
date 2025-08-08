@@ -128,17 +128,18 @@ class ErrorFight(Exception):
     """ Combattimento non valido """
 
 def pariUguali(a:list[int], b:list[int]) -> list[int]:
-    c: list[int] = []
+    c:list[int] = []
+    lunghezza_minima = min(len(a), len(b))
 
-    for i in range(len(a)):
+    for i in range(lunghezza_minima):
 
         if a[i] % 2 == 0 and b[i] % 2 == 0:
             c.append(1)
+
         else:
             c.append(0)
 
     return c
-
 def combattimento(a:Alieno, m:Mostro) -> Alieno | Mostro | None:
 
     if not isinstance(a, Alieno) or not isinstance(m, Mostro):
@@ -174,14 +175,15 @@ def proclamaVincitore(c: Creatura) -> None:
     altezza = 5
 
     for i in range(altezza):
+
         if i == 0 or i == altezza - 1:
             print("*" * larghezza)
 
         elif i == 2:
             print("*" + " " * 4, end="")
             print(testo, end="")
-            spazi_finali = larghezza - (4 + len(testo) + 1)
+            spazi_finali = larghezza - (4 + len(testo) + 2)
             print(" " * spazi_finali + "*")
-            
+
         else:
             print("*" + " " * (larghezza - 2) + "*")
