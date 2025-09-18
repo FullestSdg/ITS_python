@@ -73,7 +73,8 @@ print(printMAT(mat1))
 1.C Scrivere una funzione calcolaCarico(), che dati in input una matrice, un indice riga r ed un indice colonna c, calcola e restituisce il carico della matrice k(r,c) per la riga r e la colonna c.  
 '''
 
-
+def calcolaCarico(mat:list[list[int]], r:int, c:int) -> int:
+    pass
 
 
 

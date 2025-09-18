@@ -11,7 +11,7 @@ class Dottore(Person):
     def __init__(self, first_name, last_name, specialization:str, parcel:float):
         super().__init__(first_name, last_name)
 
-        if isinstance(specialization, str) and isinstance(parcel, int):
+        if isinstance(specialization, str) and isinstance(parcel, float):
 
             self._specializzazione = specialization
             self._parcella = parcel 
@@ -69,7 +69,7 @@ class Dottore(Person):
     def doctorGreet(self) -> None:
 
         if self.isAValidDoctor() == True:  
-            print(self.greet() + f"\nSono un medico {self._specializzazione}")
+            print(self.greet() + f"\nSono un medico {self.getSpecialization()}")
 
     
 
