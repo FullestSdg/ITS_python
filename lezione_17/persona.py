@@ -16,7 +16,8 @@ class Person:
         
             self._nome = None 
             self._cognome = None
-            self._età = None 
+            self._età = None
+            print("Il nome inserito e il cognome inserito non sono stringhe!")
             
         elif not isinstance(first_name, str):
 
@@ -66,14 +67,14 @@ class Person:
     def getAge(self) -> int:
         return self._età 
     
-    def greet(self) -> None:
+    def greet(self) -> str:
 
-        print(f"Ciao, sono {self._nome} {self._cognome}!"+\
-              f"\nHo {self._età} anni!")
+        return f"Ciao, sono {self._nome} {self._cognome}!"+\
+              f"\nHo {self._età} anni!" # Chiedere se ha senso mettere return in modo da aver quel metodo su dottore.py
 
 
 
-GiuseppeRoberto = Person("Giuseppe", "Roberto")
+# GiuseppeRoberto = Person("Giuseppe", "Roberto")
 # print(GiuseppeRoberto.getName())
 # print(GiuseppeRoberto.getLastName())
 
@@ -82,11 +83,11 @@ GiuseppeRoberto = Person("Giuseppe", "Roberto")
 # print(GiuseppeRoberto.getAge())
 # GiuseppeRoberto.greet()
 
-DanielErcoli = Person("Daniel", 973)
+# DanielErcoli = Person("Daniel", 973)
 # print(DanielErcoli.getName())
 # print(DanielErcoli.getLastName())
 
-ValerioBonaventura = Person(32,35)
+# ValerioBonaventura = Person(32,35)
 # print(ValerioBonaventura.getName())
 # print(ValerioBonaventura.getLastName())
 # print(ValerioBonaventura.getAge())

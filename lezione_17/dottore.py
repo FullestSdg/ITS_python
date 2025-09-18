@@ -55,17 +55,38 @@ class Dottore(Person):
     def getParcel(self) -> float:
         return self._parcella 
     
-    def isAValidDoctor(self) -> None: 
+    def isAValidDoctor(self) -> bool: 
 
         if self.getAge() > 30:
 
             print(f"Doctor: {self._nome} {self._cognome} is valid!")
+            return True
 
         else:
             print(f"Doctor: {self._nome} {self._cognome} is not valid!")
+            return False
 
+    def doctorGreet(self) -> None:
 
-    def doctorGreet() -> 
+        if self.isAValidDoctor() == True:  
+            print(self.greet() + f"\nSono un medico {self._specializzazione}")
+
     
 
-    
+# GiuseppeRoberto = Person("Giuseppe", "Roberto")
+# GiuseppeRoberto.setAge(21)
+# print(GiuseppeRoberto.getAge())
+
+# DottorGiuseppe = Dottore("Giuseppe", "Roberto", "Infermiere", 1214)
+# print(DottorGiuseppe.getSpecialization())
+# print(DottorGiuseppe.getParcel())
+# print(DottorGiuseppe.getName())
+# print(DottorGiuseppe.getLastName())
+
+# DottorGiuseppe.setAge(31)
+
+# DottorGiuseppe.isAValidDoctor()
+# DottorGiuseppe.doctorGreet()
+
+# DottorGiuseppe.setAge(29)
+# DottorGiuseppe.doctorGreet() # Chiedere perchè stampa comunque is not valid 
