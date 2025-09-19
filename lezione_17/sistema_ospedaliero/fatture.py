@@ -1,8 +1,6 @@
 from paziente import Paziente 
 from dottore import Dottore
 
-# Chiedere se non sarebbe meglio fare un dizionario perchè altrimenti si crea confusione
-
 class Fattura:
 
     _dottore:Dottore 
@@ -29,6 +27,7 @@ class Fattura:
         
         if self._patient is not None:
             self._fatture = len(self._patient)
+            
         else:
             self._fatture = 0
 

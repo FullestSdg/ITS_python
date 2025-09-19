@@ -55,21 +55,26 @@ class Dottore(Person):
     def getParcel(self) -> float:
         return self._parcella 
     
-    def isAValidDoctor(self) -> bool: 
+    def isAValidDoctor(self) -> bool:
+
+        self.checking_doctor = ""
 
         if self.getAge() > 30:
 
-            print(f"Doctor: {self._nome} {self._cognome} is valid!")
+            self.checking_doctor = f"Doctor: {self._nome} {self._cognome} is valid!"
             return True
 
         else:
-            print(f"Doctor: {self._nome} {self._cognome} is not valid!")
+            self.checking_doctor = f"Doctor: {self._nome} {self._cognome} is not valid!"
             return False
 
     def doctorGreet(self) -> None:
 
         if self.isAValidDoctor() == True:  
             print(self.greet() + f"\nSono un medico {self.getSpecialization()}")
+        
+        else:
+            print(f"Impossibile presentare il dottore, probabilmente l'età non corrisponde ai requisiti")
 
     
 
@@ -77,7 +82,7 @@ class Dottore(Person):
 # GiuseppeRoberto.setAge(21)
 # print(GiuseppeRoberto.getAge())
 
-# DottorGiuseppe = Dottore("Giuseppe", "Roberto", "Infermiere", 1214)
+DottorGiuseppe = Dottore("Giuseppe", "Roberto", "Infermiere", 1214.5)
 # print(DottorGiuseppe.getSpecialization())
 # print(DottorGiuseppe.getParcel())
 # print(DottorGiuseppe.getName())
@@ -88,5 +93,5 @@ class Dottore(Person):
 # DottorGiuseppe.isAValidDoctor()
 # DottorGiuseppe.doctorGreet()
 
-# DottorGiuseppe.setAge(29)
-# DottorGiuseppe.doctorGreet() # Chiedere perchè stampa comunque is not valid 
+DottorGiuseppe.setAge(29)
+DottorGiuseppe.doctorGreet() # Chiedere perchè stampa comunque is not valid 
