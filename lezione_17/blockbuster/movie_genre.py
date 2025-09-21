@@ -5,7 +5,8 @@ class Azione(Film):
     _genere:str
     _penale:float
 
-    def __init__(self) -> None: 
+    def __init__(self, title:str, id:int):
+        super().__init__(title, id)
 
         self._genere = "Azione"
         self._penale = 3.00
@@ -24,7 +25,8 @@ class Commedia(Film):
     _genere:str
     _penale:float
 
-    def __init__(self) -> None: 
+    def __init__(self, title:str, id:int):
+        super().__init__(title, id)
 
         self._genere = "Commedia"
         self._penale = 2.50
@@ -43,7 +45,8 @@ class Drama(Film):
     _genere:str
     _penale:float
 
-    def __init__(self) -> None: 
+    def __init__(self, title:str, id:int):
+        super().__init__(title, id)
 
         self._genere = "Drama"
         self._penale = 2.00
