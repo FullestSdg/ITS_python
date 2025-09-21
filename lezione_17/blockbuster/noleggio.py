@@ -32,6 +32,7 @@ class Noleggio:
 
         self._film_list = film_list 
         self._rented_film = {}
+        self._movierented = []
 
     def isAvaible(self, film:Film) -> bool:
         
@@ -46,14 +47,12 @@ class Noleggio:
             
     def rentAMovie(self, film:Film, clientID:int):
 
-        movierented:list[Film] = []
-
         if film in self._film_list:
 
             self._film_list.remove(film)
-            movierented.append(film)
+            self._movierented.append(film)
             
-            self._rented_film[clientID] = movierented 
+            self._rented_film[clientID] = self._movierented 
 
             print(f"Il cliente {clientID} ha noleggiato {film.getTitle()}!")
         
@@ -90,20 +89,18 @@ class Noleggio:
             else:
                 print(f"Non esistono film associati a questo ID")
         
-        else:
-            print("Non esistono film associati a questo ID") #chiedere perchè
 
 
-# film1 = Azione("Ciao", 12)
-# film2 = Drama("Arrivederci", 21)
-# film3 = Commedia("Giorno", 69)
-# film4 = Commedia("Notte", 96)
+film1 = Azione("Ciao", 12)
+film2 = Drama("Arrivederci", 21)
+film3 = Commedia("Giorno", 69)
+film4 = Commedia("Notte", 96)
 
-# print(film1.getPenale())
-# print(film2.getPenale())
-# print(film3.getPenale())
+print(film1.getPenale())
+print(film2.getPenale())
+print(film3.getPenale())
 
-# noleggio1 = Noleggio([film1,film2,film3])
+noleggio1 = Noleggio([film1,film2,film3])
 
 # print(film2.getTitle())
 # print(film2.calcolaPenaleRitardo(10))
@@ -126,3 +123,7 @@ class Noleggio:
 # noleggio1.giveBack(film2, 121212, 5)
 # print("")
 # noleggio1.printRentMovies(121212)
+
+noleggio1.rentAMovie(film1, 10)
+noleggio1.rentAMovie(film2, 10)
+noleggio1.printRentMovies(10)
