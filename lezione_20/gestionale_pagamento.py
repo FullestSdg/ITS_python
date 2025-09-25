@@ -36,6 +36,6 @@ class PagamentoContanti(Pagamento):
 pagamento = PagamentoContanti()
 pagamento.setPagamento(255)
 pagamento.inPezziDa()
-
+pagamento.dettagliPagamento()
 
 
