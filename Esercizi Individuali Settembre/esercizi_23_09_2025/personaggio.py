@@ -41,16 +41,16 @@ class Character:
         self._livello = randint(1,50)
 
     def setHP(self) -> None:
-        self._hp = randint(1000,5000)
+        self._hp = 500 + (self._livello * 100)
     
     def setAttacco(self) -> None:
-        self._attacco = randint(50,150)
+        self._attacco = 20 + (self._livello * 3)
     
     def setDifesa(self) -> None:
-        self._difesa = randint(25,100)
+        self._difesa = 10 + (self._livello * 2)
     
     def setMana(self) -> None:
-        self._mana = randint(200,500)
+        self._mana = 100 + (self._livello * 5)
     
     def getName(self) -> str:
         return self._nome
