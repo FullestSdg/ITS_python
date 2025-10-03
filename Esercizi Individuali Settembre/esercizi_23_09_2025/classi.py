@@ -1,6 +1,6 @@
 from personaggio import *
-from random import *
 import random 
+from random import *
 
 class Warrior(Character):
 
@@ -19,7 +19,7 @@ class Warrior(Character):
     '''
     def requirementsSpecialAbility(self) -> bool:
 
-        if self._livello >= 30 and self._mana >= 100 and not self._ability_buff_active and self._cooldown = 0: # chiedere perchè not invece che == True
+        if self._livello >= 30 and self._mana >= 100 and not self._ability_buff_active and self._cooldown == 0: # chiedere perchè not invece che == True
 
             self.activateSpecialAbility()
             return True
@@ -97,7 +97,7 @@ class Mage(Character):
     
     # La classe "Mage" ha 2 sottoclassi, tuttavia hanno deei bonus statistiche predefiniti all'interno di questa:
     # Healer & SpellCaster 
-    # Mana +75%
+    # Mana +70%
     # Attacco -15%
     # Difesa -15% 
     # Hp -10%
@@ -131,7 +131,7 @@ class Healer(Mage):
         print(f"!! Healing Enchantment Activated !!\nHealing = 100 + {int(self._livello * 1.45)}")
         
         for character in alleati: 
-            character.setHP() += 100 + {int(self._livello * 1.45)}
+            character.setHP() += 100 + {int(self._livello * 2.45)}
             
         self._mana -= 400
         self._cooldown = 2
@@ -140,19 +140,41 @@ class Healer(Mage):
         # Va chiamato a fine turno  
         self._cooldown -= 1
 
-
-    
-    
-
 class SpellCaster(Mage):
 
-    _ability_buff_activate:bool = False
+    _ability_buff_active:bool = False
+    _cooldown = 0
+    _abilities:list[function]
     
     def __init__(self, nome):
         super().__init__(nome)
 
-    
+        self._abilities = [self.__fireballSpecialAbility(), self.__empoweringSpecialAbility, self.__debuffingSpecialAbility()]
+        self._avversari = []
+        self._alleati = []
 
+    def activateSpecialAbility(self, avversari:list[Character], alleati:list[Character]) -> None:
+
+        self._avversari = avversari 
+        self._alleati = alleati 
+
+        effetto = random.sample(self._abilities, 1)[0]
+
+    def __fireballSpecialAbility(self) -> None:
+
+        if self._livello >= 30 and self._mana >= 100 and not self._ability_buff_active and self._cooldown == 0:
+
+            pass
+        
+        
+
+
+
+    def __empoweringSpecialAbility(self) -> None:
+        pass 
+
+    def __debuffingSpecialAbility(self) -> None:
+        pass
 
 
 

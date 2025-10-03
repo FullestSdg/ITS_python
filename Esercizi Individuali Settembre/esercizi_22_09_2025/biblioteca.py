@@ -26,6 +26,8 @@ class Biblioteca:
             self._borrowed_books[studentID] = []
             self._borrowed_books[studentID].append(book)
 
+            # self._available_books.remove(book) da errore per qualche motivo
+
             print(f"Lo studente {studentID} ha preso in prestito {book.getTitle()}")
 
         else:
