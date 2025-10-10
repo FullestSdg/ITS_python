@@ -128,7 +128,7 @@ class Healer(Mage):
 
     def activateSpecialAbility(self, alleati:list[Character]) -> None:
 
-        print(f"!! Healing Enchantment Activated !!\nHealing = 100 + {int(self._livello * 1.45)}")
+        print(f"!! Healing Enchantment Activated !!\nHealing = 100 + {int(self._livello * 2.45)}")
         
         for character in alleati: 
             character.setHP() += 100 + {int(self._livello * 2.45)}
@@ -175,6 +175,4 @@ class SpellCaster(Mage):
 
     def __debuffingSpecialAbility(self) -> None:
         pass
-
-
 
