@@ -163,7 +163,7 @@ class SpellCaster(Mage):
     def __fireballSpecialAbility(self) -> None:
 
         if self._livello >= 30 and self._mana >= 100 and not self._ability_buff_active and self._cooldown == 0:
-
+ 
             pass
         
         
