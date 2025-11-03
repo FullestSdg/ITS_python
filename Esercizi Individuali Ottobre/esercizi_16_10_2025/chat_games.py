@@ -23,7 +23,7 @@ def StorpiatoreParole(parola:str) -> str:
     
     return new_parola
 
-print(StorpiatoreParole("ciao"))   
+print(StorpiatoreParole("viva il duce"))   
 
 
 def StorpiatoreParole2(parola:str) -> str:
